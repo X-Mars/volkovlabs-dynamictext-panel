@@ -1,0 +1,21 @@
+# Configuration files
+jest-setup.js
+jest.config.js
+webpack.config.ts
+
+# Development folders
+coverage/
+cypress/
+dist/
+
+# Tests
+**/*.test.ts
+**/*.test.tsx
+__mocks__
+
+# Declarations
+**/*.d.ts
+
+# Playwright tests
+playwright.config.ts
+test/

@@ -1,110 +1,83 @@
-# Dynamic Text Panel for Grafana
+# Business Text for Grafana
 
-![Text](https://github.com/VolkovLabs/volkovlabs-dynamictext-panel/raw/main/src/img/screenshot.png)
+![Text](https://github.com/VolkovLabs/business-text/raw/main/src/img/screenshot.png)
 
-[![Grafana](https://img.shields.io/badge/Grafana-9.3.1-orange)](https://www.grafana.com)
-![CI](https://github.com/volkovlabs/volkovlabs-dynamictext-panel/workflows/CI/badge.svg)
-[![codecov](https://codecov.io/gh/VolkovLabs/volkovlabs-dynamictext-panel/branch/main/graph/badge.svg?token=0m6f0ktUar)](https://codecov.io/gh/VolkovLabs/volkovlabs-dynamictext-panel)
-[![CodeQL](https://github.com/VolkovLabs/volkovlabs-dynamictext-panel/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VolkovLabs/volkovlabs-dynamictext-panel/actions/workflows/codeql-analysis.yml)
+![Grafana](https://img.shields.io/badge/Grafana-11.4-orange)
+![CI](https://github.com/volkovlabs/business-text/workflows/CI/badge.svg)
+![E2E](https://github.com/volkovlabs/business-text/workflows/E2E/badge.svg)
+[![codecov](https://codecov.io/gh/VolkovLabs/business-text/branch/main/graph/badge.svg)](https://codecov.io/gh/VolkovLabs/business-text)
+[![CodeQL](https://github.com/VolkovLabs/business-text/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/VolkovLabs/business-text/actions/workflows/codeql-analysis.yml)
 
 ## Introduction
 
-A Dynamic Text panel is a plugin for Grafana for dynamic, data-driven text with Markdown and Handlebars support.
+The Business Text panel plugin allows you to construct a text visualization template from the values of a dataset returned by a data source query.
 
-While the built-in Text panel in Grafana does support variables, that's about as dynamic it gets. This panel lets you define a text template using the data from your data source query.
+[![Business Text plugin for Grafana | Use HTML, Markdown, JavaScript and CSS | Community use cases](https://raw.githubusercontent.com/volkovlabs/business-text/main/img/business-text.png)](https://youtu.be/UVMysEjouNo)
 
-[![Dynamic Text Plugin for Grafana | Markdown, HTML and Handlebars to transform data visualizations](https://raw.githubusercontent.com/volkovlabs/volkovlabs-dynamictext-panel/main/img/video.png)](https://youtu.be/MpNZ4Yl-p0U)
+## Requirements
 
-### Requirements
-
-- **Grafana 8.5+**, **Grafana 9.0+** is required for version 2.X.
-- **Grafana 7.0+** is required for version 1.X.
+- Business Text panel 5.X requires **Grafana 10** or **Grafana 11**.
+- Dynamic Text panel 4.X requires **Grafana 9.2** or **Grafana 10**.
+- Dynamic Text panel 2.X and 3.X require **Grafana 8.5** or **Grafana 9**.
+- Dynamic Text panel 1.X requires **Grafana 7**.
 
 ## Getting Started
 
-The Dynamic Text panel can be installed from the [Grafana Catalog](https://grafana.com/grafana/plugins/marcusolsson-dynamictext-panel/) or use the `grafana-cli` tool to install from the command line:
+You can install the Business Text panel from the [Grafana Plugins catalog](https://grafana.com/grafana/plugins/marcusolsson-dynamictext-panel/) or use the Grafana command line tool.
+
+For the latter, please use the following command:
 
 ```bash
-grafana-cli plugins install marcusolsson-dynamictext-panel
+grafana cli plugins install marcusolsson-dynamictext-panel
 ```
 
-## Features
+[![Install Business Suite plugins in Cloud, OSS, Enterprise | Open source community plugins](https://raw.githubusercontent.com/volkovlabs/.github/main/started.png)](https://youtu.be/1qYzHfPXJF8)
 
-- Uses Monaco Code Editor with Auto formatting to update Templates.
+## Highlights
+
+- Uses Monaco Code Editor with automatic JavaScript code formatting.
 - Supports [Markdown](https://commonmark.org/help/) and [Handlebars](https://handlebarsjs.com/guide/expressions.html#basic-usage).
-- Uses [markdown-it](https://github.com/markdown-it/markdown-it) for rendering Markdown to HTML.
-- HTML inside templates is sanitized using [XSS](https://jsxss.com/en/index.html) through `textUtil`.
-- Allows to display Time global variables (`__to` and `__from`) as seconds, ISO, and formatted using `dayjs`.
-- Supports disable Sanitizing using Grafana configuration `disable_sanitize_html`.
-- Allows to display nested objects using `{{json object}}` Handlebars helper.
+- Renders [markdown-it](https://github.com/markdown-it/markdown-it) into HTML elements.
+  - Supports the highlighting of code syntax using A11Y styles.
+- Provides code sanitization:
+  - HTML inside templates is sanitized using [XSS](https://jsxss.com/en/index.html).
+  - Can be disabled in the Grafana configuration through the `disable_sanitize_html` parameter.
+- Supports display of nested objects using the `{{json object}}` Handlebars helper.
+- Supports display of time global variables (`__to` and `__from`) as seconds, ISO timestamps, or formatted using the `dayjs` library.
+- Supports adding the Handlebars helpers and event handlers.
+- Supports adding CSS styles with dashboard variables.
+- Supports internationalization using custom helpers.
 
-## Content
+## Documentation
 
-To display data from your query result, enter the name of the field surrounded by double braces. For example, to display the value from the `Time` field:
+| Section                                                               | Description                                                   |
+| --------------------------------------------------------------------- | ------------------------------------------------------------- |
+| [Rendering](https://volkovlabs.io/plugins/business-text/content/)     | Explains how to create a visualization template for your data |
+| [Recipes](https://volkovlabs.io/plugins/business-text/recipes/)       | Useful snippets that you can use in your templates            |
+| [Features](https://volkovlabs.io/plugins/business-text/features/)     | Demonstrates panel features.templates                         |
+| [Tutorials](https://volkovlabs.io/plugins/business-text/tutorials/)   | Easy to follow tutorials                                      |
+| [Release Notes](https://volkovlabs.io/plugins/business-text/release/) | Stay up to date with the latest features and updates          |
 
-```
-{{Time}}
-```
+## Business Suite for Grafana
 
-Panels renders the template for every row in the query result. If a query returns multiple query results, you can select the query result you wish to display from a drop-down menu.
+The Business Suite is a collection of open source plugins created and actively maintained by Volkov Labs.
 
-Template support text processing using one or more helpers and recipies:
+The collection aims to solve the most frequent business tasks by providing an intuitive interface with detailed written documentation, examples, and video tutorials.
 
-- [Helpers](https://volkovlabs.io/plugins/volkovlabs-dynamictext-panel/helpers) - functions that let you perform text transformation within your template.
-- [Recipes](https://volkovlabs.io/plugins/volkovlabs-dynamictext-panel/recipes) - useful snippets that you can use in your templates.
+[![Business Suite for Grafana](https://raw.githubusercontent.com/VolkovLabs/.github/main/business.png)](https://volkovlabs.io/plugins/)
 
-The panel renders Handlebars → Markdown → Sanitized HTML and displays the final result.
+### Enterprise Support
 
-### Default content
+With the [Business Suite Enterprise](https://volkovlabs.io/pricing/), you're not just getting a product, you're getting a complete support system. You'll have a designated support team ready to tackle any issues.
 
-Whenever the data source query returns an empty result, Grafana displays the template in **Default content**. This can be useful to provide users with instructions on what to do, or who to contact, when the query returns an empty result.
+You can contact us via Zendesk, receive priority in feature requests and bug fixes, meet with us for in-person consultation, and get access to the Business Intelligence. It's a package that's designed to make your life easier.
 
-Even though there's no data from the data source, you can still use the available [helpers](https://volkovlabs.io/plugins/volkovlabs-dynamictext-panel/helpers).
+## Always happy to hear from you
 
-### Sanitizing
-
-Sanitizing is enabled by default and some elements like `<button>` are unavailable in the content.
-
-To disable sanitizing, panel depends on the Grafana configuration option [`disable_sanitize_html`](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#disable_sanitize_html). For Docker container and Docker Compose, use as:
-
-```bash
-- GF_PANELS_DISABLE_SANITIZE_HTML=true
-```
-
-## Every row vs All rows
-
-By default, the template configured in the **Content** field is rendered for each record in the result. You can render this template only once by selecting `All rows`. In this case, the query results are passed in as the `data` field to the template.
-
-Handlebars provides a [builtin-helper](https://handlebarsjs.com/guide/builtin-helpers.html#each) to iterate over these records.
-
-If your data source returns the following data:
-
-```md
-| app  | description                  | cluster | tier     |
-| ---- | ---------------------------- | ------- | -------- |
-| auth | Handles user authentication. | prod    | frontend |
-```
-
-You can then write Markdown with placeholders for the data you want to use. The value inside each double brace expression refers to a field in the query result.
-
-```md
-# {{app}}
-
-{{description}}
-
-{{#if (eq tier "frontend")}}
-Link: <a href='https://{{cluster}}.example.com/{{app}}'>https://{{cluster}}.example.com/{{app}}</a>
-{{/if}}
-```
-
-## Feedback
-
-We love to hear from users, developers, and the whole community interested in this plugin. These are various ways to get in touch with us:
-
-- Ask a question, request a new feature, and file a bug with [GitHub issues](https://github.com/volkovlabs/volkovlabs-dynamictext-panel/issues/new/choose).
-- Sponsor our open-source plugins for Grafana with [GitHub Sponsor](https://github.com/sponsors/VolkovLabs).
-- Star the repository to show your support.
+- Ask a question, request a new feature, or report an issue at [GitHub issues](https://github.com/volkovlabs/business-text/issues).
+- Subscribe to our [YouTube Channel](https://youtube.com/@volkovlabs) and leave your comments.
+- Become a [Business Suite sponsor](https://github.com/sponsors/VolkovLabs).
 
 ## License
 
-- Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/volkovlabs-dynamictext-panel/blob/main/LICENSE).
+Apache License Version 2.0, see [LICENSE](https://github.com/volkovlabs/business-text/blob/main/LICENSE).

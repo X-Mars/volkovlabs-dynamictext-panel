@@ -1,12 +1,20 @@
-import { TextOptions } from '../types';
+import { PanelOptions, RenderMode } from '../types';
 import { CodeLanguage, Format } from './editor';
 
 /**
  * Default Options
  */
-export const DefaultOptions: TextOptions = {
-  content: '',
+export const DEFAULT_OPTIONS: PanelOptions = {
+  afterRender: '',
+  content: '```json\n{{{json @root}}}\n```',
   defaultContent: "The query didn't return any results.",
-  everyRow: true,
-  editor: { height: 400, format: Format.AUTO, language: CodeLanguage.MARKDOWN },
+  editor: { format: Format.AUTO, language: CodeLanguage.MARKDOWN },
+  editors: [],
+  renderMode: RenderMode.EVERY_ROW,
+  externalStyles: [],
+  contentPartials: [],
+  helpers: '',
+  status: '',
+  styles: '',
+  wrap: true,
 };

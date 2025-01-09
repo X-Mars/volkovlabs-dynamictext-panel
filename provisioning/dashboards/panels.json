@@ -24,31 +24,337 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 6,
   "links": [],
-  "liveNow": false,
   "panels": [
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 10
+              },
+              {
+                "color": "red",
+                "value": 50
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 19,
+      "options": {
+        "afterRender": "",
+        "content": "<div style=\"background-color: {{statusColor}}\">\n  {{A-series}}\n</div>",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 200,
+          "language": "markdown"
+        },
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "A-series",
+        "styles": "",
+        "wrap": true
+      },
+      "repeat": "test",
+      "repeatDirection": "h",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "$test",
+      "type": "marcusolsson-dynamictext-panel"
+    },
     {
       "datasource": {
         "type": "marcusolsson-static-datasource",
         "uid": "U0HP2Rv4z"
       },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 5
+      },
+      "id": 15,
+      "options": {
+        "afterRender": "",
+        "content": "{{replace Test \"Pattern\" \"Replaced\"}}",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 202,
+          "language": "markdown"
+        },
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "context.handlebars.registerHelper('replace',\n  (context, pattern, replacement) => context.replace(pattern, replacement));\n",
+        "renderMode": "everyRow",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "feedType": "all",
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Test",
+                "type": "string",
+                "values": ["Here is the Pattern to replace"]
+              }
+            ],
+            "meta": {},
+            "name": "Test"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Replace Custom Function",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "U0HP2Rv4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 5
+      },
+      "id": 25,
+      "options": {
+        "afterRender": "",
+        "content": "```html\n{{> Index}}\n```",
+        "contentPartials": [
+          {
+            "id": "1a363455-fd81-4afd-993b-beb062fe29ac",
+            "name": "Index",
+            "url": "https://volkovlabs.io/index.html"
+          }
+        ],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "language": "markdown"
+        },
+        "editors": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "test",
+                "type": "string",
+                "values": ["test"]
+              }
+            ],
+            "meta": {},
+            "name": "test"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Partial",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "U0HP2Rv4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 12,
+        "x": 0,
+        "y": 7
+      },
+      "id": 7,
+      "options": {
+        "afterRender": "",
+        "content": "- Timestamp: {{variable \"__from\"}}\n- Parsed: {{variable \"__from:date:YYYY\"}}",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 400,
+          "language": "html"
+        },
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "allRows",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "No Results",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "U0HP2Rv4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 5,
         "w": 12,
         "x": 0,
-        "y": 0
+        "y": 9
       },
       "id": 13,
       "options": {
-        "content": "# {{app}}\n\n{{description}}\n\n{{#if (eq tier \"frontend\")}}\nLink: <a href='https://{{cluster}}.example.com/{{app}}'>https://{{cluster}}.example.com/{{app}}</a>\n{{/if}}",
+        "afterRender": "",
+        "content": "# {{app}}\n\n> {{description}}\n\n{{#if (eq tier \"frontend\")}}\nLink: <a href='https://{{cluster}}.example.com/{{app}}'>https://{{cluster}}.example.com/{{app}}</a>\n{{/if}}",
+        "contentPartials": [],
         "defaultContent": "The query didn't return any results.",
         "editor": {
           "format": "auto",
           "height": 400,
           "language": "markdown"
         },
-        "everyRow": true
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "",
+        "wrap": true
       },
+      "pluginVersion": "5.5.0",
       "targets": [
         {
           "datasource": {
@@ -97,57 +403,54 @@
         "type": "marcusolsson-static-datasource",
         "uid": "U0HP2Rv4z"
       },
-      "gridPos": {
-        "h": 4,
-        "w": 12,
-        "x": 12,
-        "y": 0
-      },
-      "id": 7,
-      "options": {
-        "content": "- Timestamp: {{variable \"__from\"}}\n- Parsed: {{variable \"__from:date:YYYY\"}}",
-        "defaultContent": "The query didn't return any results.",
-        "editor": {
-          "format": "auto",
-          "height": 400,
-          "language": "html"
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
         },
-        "everyRow": false
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "marcusolsson-static-datasource",
-            "uid": "U0HP2Rv4z"
-          },
-          "refId": "A"
-        }
-      ],
-      "title": "No Results",
-      "type": "marcusolsson-dynamictext-panel"
-    },
-    {
-      "datasource": {
-        "type": "marcusolsson-static-datasource",
-        "uid": "U0HP2Rv4z"
+        "overrides": []
       },
       "gridPos": {
-        "h": 9,
+        "h": 8,
         "w": 12,
         "x": 12,
-        "y": 4
+        "y": 13
       },
-      "id": 8,
+      "id": 26,
       "options": {
-        "content": "- Timestamp: {{variable \"__from\"}}\n- Seconds: {{variable \"__from:date:seconds\"}}\n- Parsed: {{variable \"__from:date:YYYY-MM-DD\"}}\n- ISO:\n  - From {{variable \"__from:date:iso\"}}\n  - To {{variable \"__from:date\"}}\n\n## {{test}}",
+        "afterRender": "",
+        "content": "```html\n{{> Index}}\n```",
+        "contentPartials": [
+          {
+            "id": "1a363455-fd81-4afd-993b-beb062fe29ac",
+            "name": "Index",
+            "url": "https://volkovlabs.io/${pages}.html"
+          }
+        ],
         "defaultContent": "The query didn't return any results.",
         "editor": {
           "format": "auto",
-          "height": 400,
           "language": "markdown"
         },
-        "everyRow": true
+        "editors": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "",
+        "wrap": true
       },
+      "pluginVersion": "5.5.0",
       "targets": [
         {
           "datasource": {
@@ -167,29 +470,9 @@
             "name": "test"
           },
           "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "marcusolsson-static-datasource",
-            "uid": "U0HP2Rv4z"
-          },
-          "frame": {
-            "fields": [
-              {
-                "config": {},
-                "name": "test",
-                "type": "string",
-                "values": ["test2"]
-              }
-            ],
-            "meta": {},
-            "name": "test2"
-          },
-          "hide": false,
-          "refId": "B"
         }
       ],
-      "title": "Date Variables",
+      "title": "Partial with replace",
       "type": "marcusolsson-dynamictext-panel"
     },
     {
@@ -197,23 +480,50 @@
         "type": "marcusolsson-static-datasource",
         "uid": "U0HP2Rv4z"
       },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 4,
         "w": 12,
         "x": 0,
-        "y": 5
+        "y": 14
       },
       "id": 11,
       "options": {
-        "content": "<a type=\"button\" class=\"btn btn-danger\">{{test}}</a>\n\n<button>{{test}}</button>",
+        "afterRender": "",
+        "content": "<a type=\"button\" onclick=\"myFunc()\" class=\"btn btn-danger\">{{test}}</a>\n\n<button onclick=\"myFunc()\">{{test}}</button>",
+        "contentPartials": [],
         "defaultContent": "The query didn't return any results.",
         "editor": {
           "format": "auto",
-          "height": 400,
+          "height": 200,
           "language": "markdown"
         },
-        "everyRow": true
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "myFunc = () => {\n  alert('Bonjour!');\n};\n",
+        "renderMode": "everyRow",
+        "styles": "",
+        "wrap": true
       },
+      "pluginVersion": "5.5.0",
       "targets": [
         {
           "datasource": {
@@ -244,23 +554,51 @@
         "type": "marcusolsson-static-datasource",
         "uid": "U0HP2Rv4z"
       },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
       "gridPos": {
         "h": 13,
         "w": 12,
         "x": 0,
-        "y": 9
+        "y": 18
       },
       "id": 5,
       "options": {
-        "content": "<table width=100% style='border:2px solid #5D3FC4'>\n   <tr>\n      <td style='border:0;background-color:#5d3fc4;color:white;'>\n         <p style='margin:0'><b style='font-family: silom;font-size:20px'>{{first_name}} {{last_name}}</b>\n         </p>\n      </td>\n      <td rowspan=3 style='border:2px solid #5D3FC4;text-align:center' width=200px>\n         <img width=120px src=\"{{photo}}\">\n      </td>\n   </tr>\n   <tr>\n      <td style='background-color:#f6f2ff;color:#5F3DC4'>login\n         <b style='font-family: silom;font-size:14px'>{{login}}</b>\n         <br>role <b style='font-family: silom;font-size:14px'>{{role}}</b>\n      </td>\n   </tr>\n   <tr>\n      <td style='text-align:right;border:0;background-color:#f6f2ff;color:#5F3DC4;'>\n         <p style='margin:0'>\n            {{#if (eq status 'active')}}\n         <p style='px;color:#549728; font-size:22px; font-family:Roboto;margin:0'><b>Active</b></p>\n         {{/if}}\n         {{#if (eq status 'not active')}}\n         <p style='px;color:#FF5656; font-size:22px; font-family:Roboto;margin:0'><b>Not Active</b></p>\n         {{/if}}\n         Last Login Date <br><b> {{date last_login_date 'YYYY-MM-DD HH:MM'}}</b></p>\n      </td>\n   </tr>\n</table>",
+        "afterRender": "",
+        "content": "<table width=100% style='border:2px solid #5D3FC4'>\n   <tr>\n      <td class='name'>\n         <p style='margin:0'><b class='name'>{{first_name}} {{last_name}}</b>\n         </p>\n      </td>\n      <td rowspan=3 class='photo' width=200px>\n         <img width=120px src=\"{{photo}}\">\n      </td>\n   </tr>\n   <tr>\n      <td style='background-color:#f6f2ff;color:#5F3DC4'>login\n         <b style='font-family: silom;font-size:14px'>{{login}}</b>\n         <br>role <b style='font-family: silom;font-size:14px'>{{role}}</b>\n      </td>\n   </tr>\n   <tr>\n      <td class='desc'>\n         <p style='margin:0'>\n            {{#if (eq status 'active')}}\n         <p style='px;color:#549728; font-size:22px; font-family:Roboto;margin:0'><b>Active</b></p>\n         {{/if}}\n         {{#if (eq status 'not active')}}\n         <p style='px;color:#FF5656; font-size:22px; font-family:Roboto;margin:0'><b>Not Active</b></p>\n         {{/if}}\n         Last Login Date <br><b> {{date last_login_date 'YYYY-MM-DD HH:MM'}}</b></p>\n      </td>\n   </tr>\n</table>",
+        "contentPartials": [],
         "defaultContent": "The query didn't return any results.",
         "editor": {
           "format": "auto",
           "height": 400,
           "language": "html"
         },
-        "everyRow": true
+        "editors": ["styles"],
+        "externalScripts": [],
+        "externalStyles": [],
+        "handlebars": "",
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "td.name {\n  border: 0;\n  background-color: #5d3fc4;\n  color: white;\n}\n\nb.name {\n  font-family: silom;\n  font-size:20px;\n}\n\ntd.photo {\n  border:2px solid #5D3FC4;\n  text-align:center;\n}\n\ntd.desc {\n  text-align:right;\n  border:0;\n  background-color:#f6f2ff;\n  color:#5F3DC4;\n}",
+        "wrap": true
       },
+      "pluginVersion": "5.5.0",
       "targets": [
         {
           "datasource": {
@@ -342,23 +680,286 @@
         "type": "marcusolsson-static-datasource",
         "uid": "U0HP2Rv4z"
       },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 13
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
       },
-      "id": 9,
+      "gridPos": {
+        "h": 12,
+        "w": 6,
+        "x": 12,
+        "y": 21
+      },
+      "id": 8,
       "options": {
-        "content": "- Timestamp: {{variable \"__from\"}}\n- Seconds: {{variable \"__from:date:seconds\"}}\n- Parsed: {{variable \"__from:date:YYYY-MM-DD\"}}\n- ISO:\n  - From {{variable \"__from:date:iso\"}}\n  - To {{variable \"__from:date\"\n\n## {{test}}",
+        "afterRender": "",
+        "content": "- Timestamp: {{variable \"__from\"}}\n- Seconds: {{variable \"__from:date:seconds\"}}\n- Parsed: {{variable \"__from:date:YYYY-MM-DD\"}}\n- ISO:\n  - From {{variable \"__from:date:iso\"}}\n  - To {{variable \"__from:date\"}}\n\n## {{test}}\n\n{{json @root}}",
+        "contentPartials": [],
         "defaultContent": "The query didn't return any results.",
         "editor": {
           "format": "auto",
           "height": 400,
           "language": "markdown"
         },
-        "everyRow": true
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "handlebars": "",
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "",
+        "wrap": true
       },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "test",
+                "type": "string",
+                "values": ["test"]
+              }
+            ],
+            "meta": {},
+            "name": "test"
+          },
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "test",
+                "type": "string",
+                "values": ["test2"]
+              }
+            ],
+            "meta": {},
+            "name": "test2"
+          },
+          "hide": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Date Variables",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "grafana",
+        "uid": "grafana"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 6,
+        "x": 18,
+        "y": 21
+      },
+      "id": 17,
+      "options": {
+        "afterRender": "",
+        "content": "```json\n{{{json @root}}}\n```",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 100,
+          "language": "markdown"
+        },
+        "editors": ["styles"],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "allRows",
+        "styles": "& {\n  padding: 0;\n  margin: 0;\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "datasource",
+            "uid": "grafana"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "volkovlabs-rss-datasource",
+        "uid": "rZAdZdf7a"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 31
+      },
+      "id": 2,
+      "options": {
+        "afterRender": "",
+        "content": "| Title | Date | Category |\n| ----- | ------ | ---- |\n{{#each data}}\n| {{title}} | {{date pubDate 'MMM, DD YYYY'}} | {{category}}\n{{/each}}",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 400,
+          "language": "html"
+        },
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "handlebars": "handlebars.registerHelper('replace',\n  (context, pattern, replacement) => context.replace(pattern, replacement));\n",
+        "helpers": "",
+        "renderMode": "allRows",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "volkovlabs-rss-datasource",
+            "uid": "rZAdZdf7a"
+          },
+          "dateField": "pubDate",
+          "feedType": "items",
+          "queryText": "test",
+          "refId": "A"
+        }
+      ],
+      "title": "News",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "ddd, DD MMM YYYY HH:mm:ss ZZ",
+                "destinationType": "time",
+                "targetField": "pubDate"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "U0HP2Rv4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 9,
+      "options": {
+        "afterRender": "",
+        "content": "- Timestamp: {{variable \"__from\"}}\n- Seconds: {{variable \"__from:date:seconds\"}}\n- Parsed: {{variable \"__from:date:YYYY-MM-DD\"}}\n- ISO:\n  - From {{variable \"__from:date:iso\"}}\n  - To {{variable \"__from:date\"\n\n## {{test}}",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "height": 400,
+          "language": "markdown"
+        },
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "handlebars": "",
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
       "targets": [
         {
           "datasource": {
@@ -406,79 +1007,53 @@
     {
       "datasource": {
         "type": "volkovlabs-rss-datasource",
-        "uid": "rZAdZdf7a"
-      },
-      "gridPos": {
-        "h": 12,
-        "w": 12,
-        "x": 0,
-        "y": 22
-      },
-      "id": 2,
-      "options": {
-        "content": "<table width=100% style='border:0'>\n<tr>\n<td style='border:0'><h3><a target=\"_blank\" style=\"color: blue\" href=\"{{link}}\">{{title}}</a></h3>\n{{{content:h4}}}</td>\n<td rowspan=2 style='border:0' width=200px>\n<div style='max-width: 100%; display: inline; height: auto '><img width=200px src=\"{{content:img-src}}\"></div></td>\n</tr>\n<tr>\n<td style='border:0'><b>{{date pubDate 'MMM, DD YYYY'}} by {{dc:creator}}</b></td>\n</table>",
-        "defaultContent": "The query didn't return any results.",
-        "editor": {
-          "format": "auto",
-          "height": 400,
-          "language": "html"
-        },
-        "everyRow": true
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "volkovlabs-rss-datasource",
-            "uid": "rZAdZdf7a"
-          },
-          "dateField": "pubDate",
-          "feedType": "items",
-          "queryText": "test",
-          "refId": "A"
-        }
-      ],
-      "title": "News",
-      "transformations": [
-        {
-          "id": "convertFieldType",
-          "options": {
-            "conversions": [
-              {
-                "dateFormat": "ddd, DD MMM YYYY HH:mm:ss ZZ",
-                "destinationType": "time",
-                "targetField": "pubDate"
-              }
-            ],
-            "fields": {}
-          }
-        }
-      ],
-      "type": "marcusolsson-dynamictext-panel"
-    },
-    {
-      "datasource": {
-        "type": "volkovlabs-rss-datasource",
         "uid": "rZAdZdf82"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 12,
         "w": 12,
         "x": 12,
-        "y": 22
+        "y": 42
       },
       "id": 3,
       "options": {
+        "afterRender": "",
         "content": "<table width=100% style='border:0'>\n<tr>\n<td style='border:0'><h3><a target=\"_blank\" style=\"color: blue\" href=\"{{link}}\">{{title}}</a></h3>\n{{{content:h4}}}</td>\n<td rowspan=2 style='border:0' width=200px>\n<div style='max-width: 100%; display: inline; height: auto '><img width=200px src=\"{{media:group:media:thumbnail:url}}\"></div></td>\n</tr>\n<tr>\n<td style='border:0'><b>{{date updated 'MMM, DD YYYY'}} by {{author}}</b></td>\n</table>",
+        "contentPartials": [],
         "defaultContent": "The query didn't return any results.",
         "editor": {
           "format": "auto",
           "height": 400,
           "language": "html"
         },
-        "everyRow": true
+        "editors": [],
+        "externalScripts": [],
+        "externalStyles": [],
+        "handlebars": "",
+        "helpers": "",
+        "renderMode": "everyRow",
+        "styles": "",
+        "wrap": true
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "5.5.0",
       "targets": [
         {
           "datasource": {
@@ -508,14 +1083,434 @@
         }
       ],
       "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "U0HP2Rv4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 0,
+        "y": 43
+      },
+      "id": 22,
+      "options": {
+        "afterRender": "",
+        "content": "<button class=\"button\">Button</button>",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "none",
+          "height": 200,
+          "language": "html"
+        },
+        "editors": ["styles"],
+        "externalScripts": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "data",
+        "styles": ".button {\n  background-color: ${theme.colors.primary.main};\n  border: none;\n  color: ${theme.colors.primary.contrastText};\n  padding: 4px 8px;\n  border-radius: ${theme.shape.radius.default};\n}",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Value",
+                "type": "string",
+                "values": [""]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Theme",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "U0HP2Rv4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 46
+      },
+      "id": 27,
+      "options": {
+        "afterRender": "",
+        "content": "<button type=\"button\" class=\"hvr-bounce-out\">Primary</button>\n<button type=\"button\" class=\"hvr-rotate\">Primary</button>\n<button type=\"button\" class=\"hvr-float\">Primary</button>",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "language": "markdown"
+        },
+        "editors": ["styles"],
+        "externalStyles": [
+          {
+            "id": "cb68b10f-1878-40aa-bae2-b2da13189fd7",
+            "url": "https://cdnjs.cloudflare.com/ajax/${part}/hover.css/2.3.1/css/hover.css"
+          }
+        ],
+        "helpers": "",
+        "renderMode": "allRows",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "test",
+                "type": "string",
+                "values": ["", ""]
+              }
+            ],
+            "meta": {},
+            "name": "test"
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "CSS external with variable",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "U0HP2Rv4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "value"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "yellow",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 54
+      },
+      "id": 28,
+      "options": {
+        "afterRender": "",
+        "content": "<div >\n{{#each data}}\n    <div style=\"background-color: {{fieldStatusColor \"value\" }}\">Color from value field</div>\n    <div style=\"background-color: {{statusColor}}\">Status color from Time</div>\n    {{time}} -- {{value}} \n{{/each}}\n</div>",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "language": "markdown"
+        },
+        "editors": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "allRows",
+        "status": "time",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "value",
+                "type": "string",
+                "values": ["1", "2", "3", "4", "5", "6", "7"]
+              },
+              {
+                "config": {},
+                "name": "time",
+                "type": "number",
+                "values": [10, 20, 30, 40, 50, 60, 70]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "All rows color from specific field",
+      "type": "marcusolsson-dynamictext-panel"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "U0HP2Rv4z"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "value"
+            },
+            "properties": [
+              {
+                "id": "thresholds",
+                "value": {
+                  "mode": "absolute",
+                  "steps": [
+                    {
+                      "color": "yellow",
+                      "value": null
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 54
+      },
+      "id": 29,
+      "options": {
+        "afterRender": "",
+        "content": "<div style=\"background-color: {{fieldStatusColor \"value\" }}; padding:10px\">\n<span style=\"background-color: {{statusColor}}; padding:5px\">\n```json\n{{{json @root}}}\n```\n</span> \n</div>",
+        "contentPartials": [],
+        "defaultContent": "The query didn't return any results.",
+        "editor": {
+          "format": "auto",
+          "language": "markdown"
+        },
+        "editors": [],
+        "externalStyles": [],
+        "helpers": "",
+        "renderMode": "everyRow",
+        "status": "time",
+        "styles": "",
+        "wrap": true
+      },
+      "pluginVersion": "5.5.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "U0HP2Rv4z"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "value",
+                "type": "string",
+                "values": ["1", "2", "3", "4", "5", "6", "7"]
+              },
+              {
+                "config": {},
+                "name": "time",
+                "type": "number",
+                "values": [10, 20, 30, 40, 50, 60, 70]
+              }
+            ],
+            "meta": {}
+          },
+          "refId": "A"
+        }
+      ],
+      "title": "Every row color from specific field",
+      "type": "marcusolsson-dynamictext-panel"
     }
   ],
+  "preload": false,
   "refresh": "",
-  "schemaVersion": 37,
-  "style": "dark",
+  "schemaVersion": 40,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "current": {
+          "text": ["$__all"],
+          "value": ["$__all"]
+        },
+        "includeAll": true,
+        "multi": true,
+        "name": "test",
+        "options": [
+          {
+            "selected": false,
+            "text": "test1",
+            "value": "test1"
+          },
+          {
+            "selected": false,
+            "text": "test2",
+            "value": "test2"
+          },
+          {
+            "selected": false,
+            "text": "test3",
+            "value": "test3"
+          }
+        ],
+        "query": "test1,test2,test3",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": "index",
+          "value": "index"
+        },
+        "description": "",
+        "label": "pages",
+        "name": "pages",
+        "options": [
+          {
+            "selected": true,
+            "text": "index",
+            "value": "index"
+          },
+          {
+            "selected": false,
+            "text": "main",
+            "value": "main"
+          },
+          {
+            "selected": false,
+            "text": "test",
+            "value": "test"
+          }
+        ],
+        "query": "index, main, test",
+        "type": "custom"
+      },
+      {
+        "current": {
+          "text": "libs",
+          "value": "libs"
+        },
+        "label": "part",
+        "name": "part",
+        "options": [
+          {
+            "selected": true,
+            "text": "libs",
+            "value": "libs"
+          },
+          {
+            "selected": false,
+            "text": "hover",
+            "value": "hover"
+          },
+          {
+            "selected": false,
+            "text": "dark",
+            "value": "dark"
+          }
+        ],
+        "query": "libs, hover, dark",
+        "type": "custom"
+      }
+    ]
   },
   "time": {
     "from": "now-1y",
@@ -523,8 +1518,8 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Volkov Labs News",
+  "title": "Examples",
   "uid": "O4tc_E6Gz",
-  "version": 3,
+  "version": 18,
   "weekStart": ""
 }
